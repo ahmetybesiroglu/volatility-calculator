@@ -1,5 +1,5 @@
 
-# Stock Options Volatility Calculator
+# Volatility Calculator
 
 This project calculates the volatility for specified stock tickers over given date ranges and frequencies. It uses Yahoo Finance data to compute the volatility, which can be configured through a JSON file.
 
@@ -19,10 +19,10 @@ Ensure you have Python installed (preferably version 3.6 or higher). You can dow
 
 Clone this repository to your local machine using the following command:
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/Stock-Options-Volatility-Calculator.git
 cd Stock-Options-Volatility-Calculator
-\`\`\`
+```
 
 ### Option 2: Download the Repository
 
@@ -38,25 +38,25 @@ It's a good practice to use a virtual environment to manage dependencies. You ca
 
 For Windows:
 
-\`\`\`bash
+```bash
 python -m venv env
 env\Scripts\activate
-\`\`\`
+```
 
 For macOS and Linux:
 
-\`\`\`bash
+```bash
 python3 -m venv env
 source env/bin/activate
-\`\`\`
+```
 
 ### Install Dependencies
 
 Install the required dependencies using the provided \`requirements.txt\` file:
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Configuration
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 Edit the \`config/config.json\` file to specify the tickers, frequencies, start dates, and end dates. Here is an example of what the file looks like:
 
-\`\`\`json
+```json
 {
   "tickers": [
     "BKKT", "FRGE", "VIRT", "HOOD", "COIN", "TW", "MKTX",
@@ -87,21 +87,21 @@ Edit the \`config/config.json\` file to specify the tickers, frequencies, start 
     "4/1/2024", "4/1/2024", "4/1/2024"
   ]
 }
-\`\`\`
+```
 
 ## Running the Script
 
 Run the script to calculate volatilities:
 
-\`\`\`bash
+```bash
 python src/volatility_calculator.py
-\`\`\`
+```
 
 The results will be saved in the \`output\` directory as \`volatility_results_wide_format.csv\`.
 
 ## Project Structure
 
-\`\`\`
+```
 Stock-Options-Volatility-Calculator/
 ├── README.md
 ├── LICENSE
@@ -112,7 +112,7 @@ Stock-Options-Volatility-Calculator/
 │   └── volatility_calculator.py
 ├── data/
 └── output/
-\`\`\`
+```
 
 ## License
 
@@ -133,4 +133,4 @@ If you encounter any issues, ensure that all dependencies are correctly installe
 
 ## Contact
 
-For further questions, please contact [your email].
+For further questions, please contact ahmetybesiroglu@gmail.com.
