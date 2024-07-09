@@ -18,22 +18,18 @@ def calculate_volatility(ticker, start_date, end_date, frequency='weekly'):
     if frequency == 'daily':
         prices = adj_close
         annual_factor = np.sqrt(252)
-        window_size = 120
     elif frequency == 'weekly':
         prices = adj_close.resample('W-FRI').last()
         annual_factor = np.sqrt(52)
-        window_size = 24
     elif frequency == 'monthly':
         prices = adj_close.resample('M').last()
         annual_factor = np.sqrt(12)
-        window_size = 5
     else:
         raise ValueError("Invalid frequency. Use 'daily', 'weekly', or 'monthly'.")
 
     log_returns = np.log(prices / prices.shift(1)).dropna()
-    rolling_volatility = log_returns.rolling(window=window_size).std() * annual_factor
-    last_rolling_volatility = rolling_volatility.iloc[-2]
-    return round(last_rolling_volatility * 100, 2)
+    volatility = log_returns.std() * annual_factor
+    return round(volatility * 100, 2)
 
 def load_config(config_path):
     with open(config_path, 'r') as file:
@@ -64,7 +60,9 @@ if __name__ == "__main__":
         row_df = pd.DataFrame([row], columns=columns)
         results_df = pd.concat([results_df, row_df], ignore_index=True)
 
-    output_file = os.path.join(os.path.dirname(__file__), '..', 'output', 'volatility_results_wide_format.csv')
+    output_dir = os.path.join(os.path.dirname(__file__), '..', 'output')
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, 'volatility_results.csv')
     results_df.to_csv(output_file, index=False)
 
     print(f"Results saved to {output_file}")
