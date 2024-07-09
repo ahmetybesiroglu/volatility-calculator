@@ -113,18 +113,15 @@ The methodology for calculating volatility is as follows:
 2. **Adjusting Data Frequency**: The adjusted close prices are resampled to the specified frequency (daily, weekly, or monthly).
 3. **Log Returns Calculation**: The logarithmic returns are calculated using the formula:
 
-   $$\text{log\_returns} = \log\left(\frac{\text{prices}}{\text{prices.shift(1)}}\right)$$
+   $$\text{log returns} = log(\frac{{\text{current price}}}{\text{previous price}})$$
 
 4. **Volatility Calculation**: The standard deviation of the log returns over the entire date range is calculated and annualized using the appropriate factor based on the frequency:
-   - Daily: $ \sqrt{252} $
-   - Weekly: $ \sqrt{52} $
-   - Monthly: $ \sqrt{12} $
+   - Daily: $\sqrt{252}$
+   - Weekly: $\sqrt{52}$
+   - Monthly: $\sqrt{12}$
 5. **Annualized Volatility**: The calculated standard deviation is multiplied by the annual factor to get the annualized volatility, which is then expressed as a percentage.
 
 This approach ensures that the volatility represents the price variation over the entire specified date range, giving a comprehensive view of the stock's historical volatility.
-
-
-
 
 
 ## Project Structure
